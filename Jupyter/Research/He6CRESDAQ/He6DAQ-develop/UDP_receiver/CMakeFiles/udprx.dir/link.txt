@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/udprx.dir/udprx.cpp.o CMakeFiles/udprx.dir/common/Socket.cpp.o CMakeFiles/udprx.dir/common/Timer.cpp.o -o udprx  -pthread 

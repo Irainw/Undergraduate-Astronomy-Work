@@ -1,0 +1,41 @@
+LMS test/demonstration program version 0.2 2017-08-02 using library version b'1.02' and wrapper version b'0.1'
+I think there are 1 devices
+Found 1 devices
+1
+  Model 1 is  b'LMS-152D'
+We have 1 active devices
+  Device 1  is active
+  Opened device 1 . Returned status 0x0 ( b'STATUS_OK' )
+Before we do any tests, let's let the system know the device...
+  Device 1 ( b'LMS-152D' ) has serial number 14881
+  Frequency = 0.25  GHz
+  Sweep start frequency = 0.25  GHz
+  Sweep end frequency = 1.5  GHz
+  Sweep time = 1.0  seconds
+  Power level = 12.0  db
+  Pulse on time = 9.999999747378752e-05  sec.
+  Pulse off time = 0.0005000000237487257  sec.
+  Minimum frequency = 0.25  GHz
+  Maximum frequency = 1.5  GHz
+  Midpoint frequency =  0.625  GHz above the min
+  Set frequency to  0.875  GHz.
+  Read frequency back and got  25,000,000  in 10Hz units
+  Set sweep start frequency to  0.45625  GHz.
+  Set sweep end frequency to  0.6625  GHz.
+  Read start frequency back and got  45,625,000 in 10Hz units
+  Read end frequency back and got  66,250,000  in 10Hz units
+  Set sweep time to 20 milliseconds. Status= 0x0  ( b'STATUS_OK' )
+  Read sweep time =   0.02  seconds
+  Set power level to -15 db. Status= 0x0  ( b'STATUS_OK' )
+  Read power level =  -15.0  db
+  Set RF on. Status= 0x0  ( b'STATUS_OK' )
+  SetUseExternalPulseMod is FALSE. Status= 0x0  ( b'STATUS_OK' )
+  SetFastPulsedOutput to 2ms on every 50ms, Status= 0x0  ( b'STATUS_OK' )
+  Set UseInternalRef TRUE. Status= 0x0  ( b'STATUS_OK' )
+  Set sweep direction TRUE. Status= 0x0  ( b'STATUS_OK' )
+  Set sweep mode TRUE. Status= 0x0  ( b'STATUS_OK' )
+  Set sweep type TRUE. Status= 0x0  ( b'STATUS_OK' )
+  Started sweep. Status= 0x0  ( b'STATUS_OK' )
+  Closed device  1 . Return Status= 0x0  ( b'STATUS_OK' )
+End of test
+>>>

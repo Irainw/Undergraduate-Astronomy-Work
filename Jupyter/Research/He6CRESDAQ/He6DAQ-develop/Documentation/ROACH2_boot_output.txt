@@ -1,0 +1,209 @@
+Linux/PowerPC load: console=ttyS0,115200 root=/dev/nfs rootpath=10.66.192.32:/srv/roach2_boot/root ip
+
+U-Boot 2011.06-rc2-00000-g2694c9d-dirty (Dec 04 2013 - 20:58:06)
+
+CPU:   AMCC PowerPC 440EPx Rev. A at 533.333 MHz (PLB=133 OPB=66 EBC=66)
+       No Security/Kasumi support
+       Bootstrap Option C - Boot ROM Location EBC (16 bits)
+       32 kB I-Cache 32 kB D-Cache
+Board: ROACH2
+I2C:   ready
+DRAM:  512 MiB
+Flash: 128 MiB
+In:    serial
+Out:   serial
+Err:   serial
+CPLD:  2.1
+USB:   Host(int phy)
+SN:    ROACH2.2 batch=D#19#7 software fixups match
+MAC:   02:44:01:02:13:07
+DTT:   1 is 27 C
+DTT:   2 is 26 C
+Net:   ppc_4xx_eth0
+Sensors Config
+type run netboot to boot via dhcp+tftp+nfs
+type run soloboot to run from flash independent of network
+
+Hit any key to stop autoboot:  0
+Waiting for PHY auto negotiation to complete... done
+ENET Speed is 1000 Mbps - FULL duplex connection (EMAC0)
+BOOTP broadcast 1
+*** Unhandled DHCP Option in OFFER/ACK: 28
+*** Unhandled DHCP Option in OFFER/ACK: 28
+DHCP client bound to address 10.66.192.36
+Using ppc_4xx_eth0 device
+TFTP from server 10.66.192.32; our IP address is 10.66.192.36
+Filename 'uImage'.
+Load address: 0x4000000
+Loading: #################################################################
+         #################################################################
+         #######################
+done
+Bytes transferred = 2231549 (220cfd hex)
+## Booting kernel from Legacy Image at 04000000 ...
+   Image Name:   Linux-3.7.0-rc2+
+   Image Type:   PowerPC Linux Kernel Image (gzip compressed)
+   Data Size:    2231485 Bytes = 2.1 MiB
+   Load Address: 00500000
+   Entry Point:  005010d4
+   Verifying Checksum ... OK
+   Uncompressing Kernel Image ... OK
+CPU clock-frequency <- 0x1fca0550 (533MHz)
+CPU timebase-frequency <- 0x1fca0550 (533MHz)
+/plb: clock-frequency <- 7f28154 (133MHz)
+/plb/opb: clock-frequency <- 3f940aa (67MHz)
+/plb/opb/ebc: clock-frequency <- 3f940aa (67MHz)
+/plb/opb/serial@ef600300: clock-frequency <- 54c563 (6MHz)
+/plb/opb/serial@ef600400: clock-frequency <- 54c563 (6MHz)
+Memory <- <0x0 0x0 0x3ffff000> (1023MB)
+ethernet0: local-mac-address <- 02:44:01:02:13:07
+
+zImage starting: loaded at 0x00500000 (sp: 0x1fe22b38)
+Allocating 0x4b0508 bytes for kernel ...
+gunzipping (0x00000000 <- 0x0050e000:0x00966034)...done 0x447880 bytes
+
+Linux/PowerPC load: console=ttyS0,115200 root=/dev/nfs rootpath=10.66.192.32:/srv/roach2_boot/root ip
+Finalizing device tree... flat tree at 0x973160
+roach2: claiming matching platform
+Using PowerPC 44x Platform machine description
+Linux version 3.7.0-rc2+ (shanly@shanly-HP8710w) (gcc version 4.6.1 20110627 (prerelease) (GCC) ) #22
+bootconsole [udbg0] enabled
+setup_arch: bootmem
+arch: exit
+Zone ranges:
+  DMA      [mem 0x00000000-0x2fffffff]
+  Normal   empty
+Movable zone start for each node
+Early memory node ranges
+  node   0: [mem 0x00000000-0x2fffffff]
+MMU: Allocated 1088 bytes of context maps for 255 contexts
+Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 195072
+Kernel command line: console=ttyS0,115200 root=/dev/nfs rootpath=10.66.192.32:/srv/roach2_boot/root p
+PID hash table entries: 4096 (order: 2, 16384 bytes)
+Dentry cache hash table entries: 131072 (order: 7, 524288 bytes)
+Inode-cache hash table entries: 65536 (order: 6, 262144 bytes)
+Memory: 774576k/786432k available (4176k kernel code, 11856k reserved, 208k data, 417k bss, 144k ini)
+Kernel virtual memory layout:
+  * 0xfffdf000..0xfffff000  : fixmap
+  * 0xfde00000..0xfe000000  : consistent mem
+  * 0xfddfe000..0xfde00000  : early ioremap
+  * 0xf1000000..0xfddfe000  : vmalloc & ioremap
+SLUB: Genslabs=13, HWalign=32, Order=0-3, MinObjects=0, CPUs=1, Nodes=1
+NR_IRQS:512 nr_irqs:512 16
+UIC0 (32 IRQ sources) at DCR 0xc0
+UIC1 (32 IRQ sources) at DCR 0xd0
+UIC2 (32 IRQ sources) at DCR 0xe0
+clocksource: timebase mult[1e00000] shift[24] registered
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 512
+regulator-dummy: no parameters
+NET: Registered protocol family 16
+
+bio: create slab <bio-0> at 0
+SCSI subsystem initialized
+Switching to clocksource timebase
+NET: Registered protocol family 2
+TCP established hash table entries: 131072 (order: 8, 1048576 bytes)
+TCP bind hash table entries: 65536 (order: 6, 262144 bytes)
+TCP: Hash tables configured (established 131072 bind 65536)
+TCP: reno registered
+UDP hash table entries: 512 (order: 1, 8192 bytes)
+UDP-Lite hash table entries: 512 (order: 1, 8192 bytes)
+NET: Registered protocol family 1
+RPC: Registered named UNIX socket transport module.
+RPC: Registered udp transport module.
+RPC: Registered tcp transport module.
+RPC: Registered tcp NFSv4.1 backchannel transport module.
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+jffs2: version 2.2. (NAND) �© 2001-2006 Red Hat, Inc.
+ROMFS MTD (C) 2007 Red Hat, Inc.
+msgmni has been set to 1512
+alg: No test for stdrng (krng)
+Block layer SCSI generic (bsg) driver version 0.4 loaded (major 253)
+io scheduler noop registered
+io scheduler deadline registered
+io scheduler cfq registered (default)
+Serial: 8250/16550 driver, 32 ports, IRQ sharing enabled
+serial8250.0: ttyS0 at MMIO 0x1ef600300 (irq = 16) is a 16550A
+console [ttyS0] enabled, bootconsole disabled
+console [ttyS0] enabled, bootconsole disabled
+serial8250.0: ttyS1 at MMIO 0x1ef600400 (irq = 17) is a 16550A
+roach2_fpga: ROACH2 FPGA Access driver
+roach2:  major 252Virtex 5 family
+roach2_fpga 1d0000000.fpga: ROACH2 FPGA driver
+roach2_fpga 1d0000000.fpga: check parameters,addr:0x1d0000000,size:0x4000000
+roach2_fpga 1d0000000.fpga: ioremap 1d0000000 to f1080000 with size 4000000
+roach2_fpga 1d0000000.fpga: ioremap 1c0100000 to f5100000 with size 200000
+roach2_fpga 1d0000000.fpga: char devices successfully registered
+brd: module loaded
+1f8000000.nor_flash: Found 1 x16 devices at 0x0 in 16-bit bank. Manufacturer ID 0x000001 Chip ID 0x01
+Amd/Fujitsu Extended Query Table at 0x0040
+  Amd/Fujitsu Extended Query version 1.3.
+number of CFI chips: 1
+6 ofpart partitions found on MTD device 1f8000000.nor_flash
+Creating 6 MTD partitions on "1f8000000.nor_flash":
+0x000000000000-0x000000400000 : "kernel"
+0x000000400000-0x000004400000 : "rootfs"
+0x000004400000-0x000007400000 : "userfs"
+0x000007400000-0x000007f00000 : "v6bitstream"
+0x000007f40000-0x000007f80000 : "ubootenv"
+0x000007f80000-0x000008000000 : "uboot"
+tun: Universal TUN/TAP device driver, 1.6
+tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+PPC 4xx OCP EMAC driver, version 3.54
+MAL v2 /plb/mcmal, 2 TX channels, 2 RX channels
+ZMII /plb/opb/emac-zmii@ef600d00 initialized
+RGMII /plb/opb/emac-rgmii@ef601000 initialized with MDIO support
+/plb/opb/emac-rgmii@ef601000: input 0 in RGMII mode
+eth0: EMAC-0 /plb/opb/ethernet@ef600e00, MAC 02:44:01:02:13:07
+eth0: found Marvell 88E1111 Ethernet PHY (0x01)
+PPP generic driver version 2.4.2
+mousedev: PS/2 mouse device common for all mice
+input: roach2chassis as /devices/virtual/input/input0
+ibm-iic 1ef600700.i2c: using standard (100 kHz) mode
+ibm-iic 1ef600800.i2c: using standard (100 kHz) mode
+ad7414 0-004c: chip found
+ad7414 0-004e: chip found
+max6650 0-0048: Fan voltage is set to 12V.
+max6650 0-0048: Prescaler is set to 4.
+max6650 0-004b: Fan voltage is set to 12V.
+max6650 0-004b: Prescaler is set to 4.
+max6650 0-001b: Fan voltage is set to 12V.
+max6650 0-001b: Prescaler is set to 4.
+max6650 0-001f: Fan voltage is set to 12V.
+max6650 0-001f: Prescaler is set to 4.
+cpuidle: using governor ladder
+cpuidle: using governor menu
+IPv4 over IPv4 tunneling driver
+TCP: cubic registered
+NET: Registered protocol family 17
+Key type dns_resolver registered
+drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+### of_selftest(): No testcase data in device tree; not running tests
+eth0: link is down
+eth0: link is up, 1000 FDX, pause enabled
+Sending DHCP requests .., OK
+IP-Config: Got DHCP answer from 10.66.192.32, my address is 10.66.192.36
+IP-Config: Complete:
+     device=eth0, addr=10.66.192.36, mask=255.255.240.0, gw=10.66.192.32
+     host=He6CRES_roach, domain=, nis-domain=(none)
+     bootserver=10.66.192.32, rootserver=10.66.192.32, rootpath=/srv/roach2_boot/root
+     nameserver0=10.66.192.32VFS: Mounted root (nfs filesystem) readonly on device 0:11.
+Freeing unused kernel memory: 144k freed
+INIT: version 2.88 booting
+about to run simple init script
+warning: can't open /etc/mtab: No such file or directory
+mount: mount point /proc/bus/usb does not exist
+INIT: Entering runlevel: 2
+ 1 Jan 00:00:15 ntpdate[452]: no server suitable for synchronization found
+Starting OpenBSD Secure Shell server: sshd.
+Starting NFS common utilities: statd failed!
+Starting NTP server: ntpd.
+tcpborphserver: ... loading roach mmap driver ...
+insmod: can't read '/lib/modules/roach_mmap.ko': No such file or directory
+version *3* using mmap
+tcpborphserver3: about to go into background
+
+Debian GNU/Linux 6.0 He6CRES_roach ttyS0
+
+He6CRES_roach login:

@@ -1,0 +1,3 @@
+## THIS SHOULD BE IN /etc/exports:
+
+/srv/roach2_boot 10.66.192.0/20(rw,subtree_check,no_root_squash,insecure)

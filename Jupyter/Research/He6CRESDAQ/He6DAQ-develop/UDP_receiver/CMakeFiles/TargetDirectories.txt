@@ -1,0 +1,3 @@
+/home/daq/He6DAQ/UDP_receiver/CMakeFiles/rebuild_cache.dir
+/home/daq/He6DAQ/UDP_receiver/CMakeFiles/udprx.dir
+/home/daq/He6DAQ/UDP_receiver/CMakeFiles/edit_cache.dir

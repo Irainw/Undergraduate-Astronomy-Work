@@ -1,0 +1,12 @@
+*.pyc
+*.spec
+*.csv
+*.a
+*.b
+*.c
+*.d
+*.fit
+*.res
+*.ogp
+*.yaml
+if*

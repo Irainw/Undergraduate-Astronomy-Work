@@ -1,0 +1,93 @@
+This directory contains the code intended to run on a raspberry pi or other
+device directly connected to the Vaunix LMS 203 'lab brick' via USB.
+
+Why use a raspberry pi as an Ethernet to USB adapter, you ask?
+
+In short, it's because Vaunix decided to use some ancient USB libraries and it's
+easiest to set up a Pi with those libraries and then communicate with the Pi
+over Ethernet.
+
+Don't believe me? RTFM, n00b:
+
+"For maximum compatibility, the SDK includes source code for C functions to
+find, initialize, and control the synthesizers, along with header files and an
+example C program which demonstrates the use of the API. These functions are
+written to use the ‘libusb’ library* which comes with most Linux distributions
+or is easily installed. Many distributions which use a kernel 2.4 or newer
+already have this library installed. A more recent library, version 1.0 is
+available but has a different API. The LabBrick functions rely on the older
+naming conventions since the libusb folks (http://www.libusb.org)** also provide
+a compatibility wrapper*** to allow accessing the newer library with the older
+style calls."
+
+
+* the package 'libusb-1.0-0' is installed by default on most machines
+
+
+** libusb.org no longer exists; the actual website is www.libusb.info
+
+
+*** the compatibiliy wrapper (used to translate the archaic libusb-0.1 commands
+from the Vaunix API to the updated libusb-1.0-0) is available at
+https://github.com/libusb/libusb-compat-0.1
+
+
+However, the libusb-compat-0.1 installation instructions are garbage.
+Specifically, there is no script called 'configure' (no extension), and
+(installing and) running the autoconf program returns "configure.ac:2: error:
+possibly undefined macro: AM_INIT_AUTOMAKE
+      If this token and others are legitimate, please use m4_pattern_allow.
+      See the Autoconf documentation."
+
+
+The github page for libusb (https://github.com/libusb/libusb/wiki) notes that
+"When compiling from git, remember that you may have to run ./autogen.sh,
+./bootstrap.sh or run the autotools creation utilities, in order to have
+configure and Makefile created for you. The difference between autogen.sh and
+bootstrap.sh is that the former will invoke configure with a set of default
+options, whereas the latter will not. "
+
+
+Running ./autogen.sh results in the following error
+"configure: error: Package requirements (libusb-1.0 >= 0.9.1) were not met:
+No package 'libusb-1.0' found
+Consider adjusting the PKG_CONFIG_PATH environment variable if you
+installed software in a non-standard prefix."
+Note that there is no such package; the correct package is libusb-1.0-0
+
+
+Running ./bootstrap.sh BEFORE ./autogen.sh results in better behavior,
+including a config file (named with no extension) You can then do <<configure>>,
+<<make>>, and <<sudo make install>> to install the libusb-compat-0.1
+compatibility wrappers.
+
+
+Except that doesn't do shit! cd to the examples folder and try to compile
+testlibusb.c (with <gcc testilbusb.c>>) and it returns a fuckload of errors like
+"/tmp/ccmH5eOV.o: In function `print_device':
+testlibusb.c:(.text+0x35e): undefined reference to `usb_open'
+testlibusb.c:(.text+0x3b5): undefined reference to `usb_get_string_simple'
+testlibusb.c:(.text+0x49a): undefined reference to `usb_get_string_simple'
+testlibusb.c:(.text+0x6a5): undefined reference to `usb_get_string_simple'
+testlibusb.c:(.text+0x6f8): undefined reference to `usb_close'
+/tmp/ccmH5eOV.o: In function `main':
+testlibusb.c:(.text+0x854): undefined reference to `usb_init'
+testlibusb.c:(.text+0x859): undefined reference to `usb_find_busses'
+testlibusb.c:(.text+0x85e): undefined reference to `usb_find_devices'
+testlibusb.c:(.text+0x865): undefined reference to `usb_busses'
+collect2: error: ld returned 1 exit status"
+
+
+So of course this does nothing to make the vaunix SDK happy. Upon doing
+<<make all>>, it returns the same goddamn errors including
+"LMShid.o: In function `brick_handler_function':
+LMShid.c:(.text+0x1529): undefined reference to `usb_interrupt_read'
+LMShid.c:(.text+0x15c9): undefined reference to `usb_find_busses'
+LMShid.c:(.text+0x15ce): undefined reference to `usb_find_devices'
+LMShid.c:(.text+0x15d3): undefined reference to `usb_get_busses'
+LMShid.c:(.text+0x16aa): undefined reference to `usb_open'"
+
+so we have achieved exactly nothing.
+
+by contrast, the pi can be set up using the BASH setup script pi_setup.sh,
+as detailed int eh PI_SETUP_README.txt file.
